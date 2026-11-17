@@ -1,11 +1,11 @@
 {
   "expo": {
-    "name": "oefeningen",
-    "slug": "oefeningen",
+    "name": "labo3",
+    "slug": "labo3",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
-    "scheme": "oefeningen",
+    "scheme": "labo3",
     "userInterfaceStyle": "automatic",
     "ios": {
       "icon": "./assets/expo.icon"
