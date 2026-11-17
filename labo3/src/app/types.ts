@@ -11,5 +11,4 @@ export interface CommandItem {
   examples: CommandExample[];
 }
 
-// Type for the full array
 export type CommandList = CommandItem[];

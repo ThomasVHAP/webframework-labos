@@ -1,6 +1,4 @@
 import { useState, useEffect } from 'react';
-
-
 interface FetchState<T> {
     loading: boolean;
     data: T | null;

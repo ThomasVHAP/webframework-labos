@@ -1,12 +1,12 @@
 import { useFetch } from "@/hooks/FetchHook";
 import { Text, View, StyleSheet, ActivityIndicator, ScrollView, ScrollViewInstance, Button, FlatList } from "react-native";
-import { CommandItem } from "./types";
+import { CommandList } from "./types";
 import CommandView from "@/Components/CommandView";
 import { useRef } from "react";
 
 export default function Index() {
 
-  const {data, error, loading, refetch} = useFetch<CommandItem>("https://raw.githubusercontent.com/similonap/json/refs/heads/master/linux.json");
+  const {data, error, loading, refetch} = useFetch<CommandList>("https://raw.githubusercontent.com/similonap/json/refs/heads/master/linux.json");
 
   if (!data) {
     return <View></View>
@@ -24,8 +24,8 @@ export default function Index() {
         refreshing={loading}
         onRefresh={refetch}
         data={data}
-        renderItem={(v) => <CommandView command={v}/>}
-        keyExtractor={(item, index) => item.rank.toString()}
+        renderItem={({item}) => <CommandView data={item}/>}
+        keyExtractor={(item) => item.rank.toString()}
       />
 
 
