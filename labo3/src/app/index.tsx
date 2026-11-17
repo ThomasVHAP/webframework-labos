@@ -3,6 +3,7 @@ import { Text, View, StyleSheet, ActivityIndicator, ScrollView, ScrollViewInstan
 import { CommandList } from "./types";
 import CommandView from "@/Components/CommandView";
 import { useRef } from "react";
+import { Link } from "expo-router";
 
 export default function Index() {
 
@@ -16,17 +17,24 @@ export default function Index() {
 
   return (
     <View style={styles.container}>
-      <Text>Edit src/app/index.tsx to edit this screen.</Text>
+      <Text>Home Screen!</Text>
+      <View style={styles.menu}>
+        <Link href="/RainbowsBasic">Rainbow Basic</Link>
+        <Link href="/Twitter">Twitter</Link>
+        <Link href="/DarkLight">Dark & Light mode</Link>
+        <Link href="/RainbowsState">Rainbow met state</Link>
+      </View>
+
 
       {/* <ActivityIndicator animating={loading}/> */}
 
-      <FlatList
+      {/* <FlatList
         refreshing={loading}
         onRefresh={refetch}
         data={data}
         renderItem={({item}) => <CommandView data={item}/>}
         keyExtractor={(item) => item.rank.toString()}
-      />
+      /> */}
 
 
       {/* <ScrollView ref={scrollViewRef}> */}
@@ -47,5 +55,16 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
+
+    marginTop: 66,
   },
+  menu: {
+    flex: 1,
+    flexDirection: "row",
+    flexWrap: "wrap",
+    justifyContent: "center",
+
+    gap: 16,
+    marginTop: 16,
+  }
 });
