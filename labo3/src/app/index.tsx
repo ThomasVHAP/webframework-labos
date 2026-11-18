@@ -1,8 +1,6 @@
 import { useFetch } from "@/hooks/FetchHook";
 import { Text, View, StyleSheet, ActivityIndicator, ScrollView, ScrollViewInstance, Button, FlatList } from "react-native";
 import { CommandList } from "./types";
-import CommandView from "@/Components/CommandView";
-import { useRef } from "react";
 import { Link } from "expo-router";
 
 export default function Index() {
