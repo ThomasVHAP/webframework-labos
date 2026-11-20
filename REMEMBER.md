@@ -77,3 +77,52 @@ export default function UserDetail() {
   );
 }
 ```
+
+### 4. Tab-navigatie met `NativeTabs` (`app/(tabs)/_layout.tsx`)
+Voor een native tab-balk onderaan het scherm gebruik je `NativeTabs` van `expo-router/native-tabs`. Dit combineert een tab-bar met native systeem-icoontjes (zoals Material Design op Android en SF Symbols op iOS).
+
+* **Bestandsstructuur:** Plaats dit in een groep zoals `app/(tabs)/_layout.tsx`, waarbij de `name` van elke `Trigger` overeenkomt met het bestand in diezelfde map (bijv. `index.tsx` en `Tab2.tsx`).
+* **Label & Icon:** Binnen `<NativeTabs.Trigger>` stel je het label en het icoon in (`md` voor Android Material Icons, `sf` voor iOS SF Symbols).
+
+```tsx
+import { NativeTabs } from "expo-router/native-tabs";
+
+const TabLayout = () => {
+  return (
+    <NativeTabs>
+      <NativeTabs.Trigger name="index">
+        <NativeTabs.Trigger.Label>Tab 1</NativeTabs.Trigger.Label>
+        <NativeTabs.Trigger.Icon md="looks_one"/>
+      </NativeTabs.Trigger>
+
+      <NativeTabs.Trigger name="Tab2">
+        <NativeTabs.Trigger.Label>Tab 2</NativeTabs.Trigger.Label>
+        <NativeTabs.Trigger.Icon md="looks_two"/>
+      </NativeTabs.Trigger>
+    </NativeTabs>
+  );
+};
+
+export default TabLayout;
+```
+
+### 5. Zijmenu-navigatie met `Drawer` (`app/_layout.tsx`)
+Voor een uitschuifbaar zijmenu (hamburger-menu) gebruik je `Drawer` van `expo-router/drawer`. Hiermee kun je zowel losse pagina's als complete tab-groepen in één zijmenu combineren.
+
+* **Routes koppelen:** De `name` prop van `<Drawer.Screen>` verwijst naar een bestand (bijv. `settings.tsx`) of een map (bijv. `tabs` met een eigen `_layout.tsx`).
+* **Menu-opties:** Met de `options` prop pas je per item de zichtbare titel in het zijmenu en de header aan (zoals `drawerLabel` en `title`).
+
+```tsx
+import { Drawer } from "expo-router/drawer";
+
+const Layout = () => {
+  return (
+    <Drawer>
+      <Drawer.Screen "Home", "Overzicht" drawerLabel: name="tabs" options="{{" title: }}/>
+      <Drawer.Screen "Instellingen" "Instellingen", drawerLabel: name="settings" options="{{" title: }}/>
+    </Drawer>
+  );
+};
+
+export default Layout;
+```

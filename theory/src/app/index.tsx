@@ -12,6 +12,7 @@ export default function Index() {
           <Text>Users Page</Text>
         </Pressable>
       </Link>
+      <Link href="/tabs">Tabs</Link>
     </View>
   );
 }
